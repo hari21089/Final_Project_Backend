@@ -27,7 +27,7 @@ exports.forgotPassword = async (req, res) => {
             }
         });
 
-        const link = `http://localhost:3000/reset-password/${token}`;
+        const link = `https://golden-sawine-519283.netlify.app/reset-password/${token}`;
 
         await transporter.sendMail({
             to: email,
