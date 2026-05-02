@@ -11,11 +11,21 @@ const app = express();
 
 
 
+
+
 /* -----------------------
 Middlewares
 ------------------------ */
 
 app.use(cors());
+
+app.use(
+    cors({
+        origin: "https://golden-sawine-519283.netlify.app",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true
+    })
+);
 
 app.use(
     express.json()
