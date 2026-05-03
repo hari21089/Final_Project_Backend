@@ -30,21 +30,15 @@ exports.forgotPassword = async (req, res) => {
         await user.save();
 
 
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: "akilan21088@gmail.com",
-                pass: "jbrtnrmhqdgzkser"
-            }
-        });
+      
 
         const link = `https://golden-sawine-519283.netlify.app/reset-password/${token}`;
 
-        await transporter.sendMail({
-            to: email,
-            subject: "Reset Password",
-            html: `<a href="${link}">Click here to reset password</a>`
-        });
+     await transporter.sendMail({
+    to: email,
+    subject: "Reset Password",
+    html: `<a href="${link}">Click here to reset password</a>`
+});
 
         res.json({ msg: "Mail sent" });
 
